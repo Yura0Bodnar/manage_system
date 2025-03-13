@@ -6,6 +6,8 @@ pipeline {
         PYTHON_BIN = "python3"
     }
 
+    stages {
+
         stage('Setup Python Environment') {
             steps {
                 script {
