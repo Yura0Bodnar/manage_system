@@ -7,17 +7,14 @@ pipeline {
     }
 
     stages {
-
         stage('Setup Python Environment') {
             steps {
                 script {
                     if (!fileExists("${VENV_DIR}")) {
-                        sh '${PYTHON_BIN} -m venv ${VENV_DIR}'
+                        sh '${PYTHON_BIN} -m venv .venv'
                     }
                     sh '''
-                        source .venv/bin/activate
-                        pip install --upgrade pip
-                        pip install -r requirements.txt
+                        bash -c "source .venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt"
                     '''
                 }
             }
@@ -26,8 +23,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 sh '''
-                    source .venv/bin/activate
-                    python manage.py test apps.manager
+                    bash -c "source .venv/bin/activate && python manage.py test apps.manager"
                 '''
             }
         }
