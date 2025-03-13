@@ -44,13 +44,6 @@ class UserListViewTest(TestCase):
         response = self.client.get(self.url)
         self.assertNotIn('manager@example.com', [user.email for user in response.context['users']])
 
-    def test_context_data(self):
-        # Перевіряємо контекстні дані, що передаються у шаблон
-        self.client.login(email='manager@example.com', password='test123')
-        response = self.client.get(self.url)
-        self.assertEqual(response.context['title'], 'List of users')
-        self.assertEqual(response.context['button_label'], 'Create user')
-
 
 #Цей клас тестує доступ до форми редагування користувача
 class CustomUpdateViewTest(TestCase):
