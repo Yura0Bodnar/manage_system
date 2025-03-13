@@ -12,11 +12,6 @@ drf-yasg==1.21.7
 # ASGI support for asynchronous web applications.
 asgiref==3.7.2
 
-# Database and Data Handling
-# ---------------------------
-# mysqlclient: MySQL database connector for Python.
-mysqlclient==2.2.0
-
 # sqlparse: Non-validating SQL parser for Python.
 sqlparse==0.4.4
 
